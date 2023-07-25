@@ -1,27 +1,16 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <div class="container mx-auto px-4 py-10">
+    <nav>
+      <RouterLink to="/" activeClass="font-semibold" >All Beers</RouterLink>
+      <RouterLink to="/my-beers" activeClass="font-semibold" class="pl-4">My Beers</RouterLink>
+    </nav>
+    <RouterView class="mt-3" />
+  </div>
 </template>
 
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+</script>
+
 <style scoped>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 </style>
