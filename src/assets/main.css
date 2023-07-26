@@ -5,7 +5,29 @@
 .card:hover:not(:has(.card-img:hover)) {
   @apply bg-blue-50 drop-shadow-none;
 }
+
 .v-popper__inner {
   max-width: 176px;
   width: max-content;
+}
+
+@layer base {
+  .input {
+    @apply form-input rounded-md border-gray-300 focus:border-gray-400 focus:ring-gray-400 border-2 w-96;
+  }
+  .textarea {
+    @apply form-textarea rounded-md border-gray-300 focus:border-gray-400 focus:ring-gray-400 border-2 w-96;
+  }
+
+
+}
+
+@layer components {
+  .button {
+    @apply bg-blue-600 px-6 py-2 text-sm text-white hover:bg-blue-700 active:bg-blue-800 focus:ring focus:outline-none rounded;
+  }
+
+  .button-transparent {
+    @apply border-none bg-transparent rounded text-gray-400 py-2 text-sm;
+  }
 }
