@@ -1,7 +1,6 @@
 <template>
   <div
     class="fixed inset-0 overflow-y-auto z-50 flex bg-gray-500 bg-opacity-75 items-center justify-center"
-    @click.self="onCancel"
   >
     <div class="bg-white rounded overflow-x-visible shadow-md z-50 flex flex-col">
       <div class="flex-grow">

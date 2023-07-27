@@ -25,13 +25,39 @@ export interface Ingredients {
   yeast: string
 }
 
-export interface Beer {
-  id: number
-  name: string
-  tagline: string
+import { object, number, string, minLength, type Output, array } from 'valibot'
+
+export const MyBeerSchema = object({
+  id: number(),
+  name: string([minLength(1)]),
+  tagline: string([minLength(1)]),
+  description: string([minLength(1)]),
+  image_url: string([minLength(1)]),
+  ingredients: object({
+    malt: array(
+      object({
+        name: string([minLength(1)]),
+        amount: object({
+          value: number(),
+          unit: string([minLength(1)])
+        })
+      })
+    ),
+    hops: array(
+      object({
+        name: string([minLength(1)]),
+        amount: object({
+          value: number(),
+          unit: string([minLength(1)])
+        })
+      })
+    ),
+    yeast: string([minLength(1)])
+  })
+})
+
+export type Beer = Output<typeof MyBeerSchema> & {
   first_brewed: string
-  description: string
-  image_url: string
   abv: number
   ibu: number
   target_fg: number
@@ -43,7 +69,6 @@ export interface Beer {
   volume: Volume
   boil_volume: Volume
   method: Method
-  ingredients: Ingredients
   food_pairing: string[]
   brewers_tips: string
   contributed_by: string
