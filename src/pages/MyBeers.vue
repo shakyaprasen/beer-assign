@@ -48,7 +48,6 @@ watch(
 
 onMounted(() => {
   const beers = getBeersFromLocalStorage()
-  console.log(beers)
   myBeers.value = beers
 })
 </script>

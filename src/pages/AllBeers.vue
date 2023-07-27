@@ -12,7 +12,7 @@
           class="text-blue-500 mt-8 font-medium hover:text-blue-600"
         >
           <span v-if="isFetchingNextPage">Loading more </span>
-          <span v-else-if="hasNextPage">Load More <down class="h-4 w-4 inline-block"/></span>
+          <span v-else-if="hasNextPage">Load More <down class="h-4 w-4 inline-block" /></span>
           <span v-else>Nothing more to load</span>
         </button>
       </div>
@@ -22,15 +22,11 @@
 
 <script setup lang="ts">
 import { useInfiniteQuery } from '@tanstack/vue-query'
-import CardContainer from '../components/CardContainer.vue'
-import { computed, ref, type Ref } from 'vue'
-import type { Beer } from '@/types/beer.interface'
-import Down from '@/assets/chevron-down.svg?component'
+import { computed } from 'vue'
 
-const getBeers = ({ pageParam = 1 }) =>
-  fetch(`https://api.punkapi.com/v2/beers?page=${pageParam}&per_page=3`).then(
-    (response) => response.json() as Promise<Array<Beer>>
-  )
+import Down from '@/assets/chevron-down.svg?component'
+import { getBeers } from '@/api/calls';
+import CardContainer from '../components/CardContainer.vue'
 
 const {
   data,
@@ -44,7 +40,7 @@ const {
 } = useInfiniteQuery({
   queryKey: ['projects'],
   queryFn: getBeers,
-  getNextPageParam: (lastPage, pages) => {
+  getNextPageParam: (_, pages) => {
     return pages.length + 1
   }
 })
