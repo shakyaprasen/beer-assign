@@ -25,7 +25,6 @@
   .textarea-error {
     @apply form-textarea rounded-md border-red-300 focus:border-red-400 focus:ring-red-400 border-2 w-96 placeholder-red-300;
   }
-
 }
 
 @layer components {

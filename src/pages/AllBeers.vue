@@ -25,7 +25,7 @@ import { useInfiniteQuery } from '@tanstack/vue-query'
 import { computed } from 'vue'
 
 import Down from '@/assets/chevron-down.svg?component'
-import { getBeers } from '@/api/calls';
+import { getBeers } from '@/api/calls'
 import CardContainer from '../components/CardContainer.vue'
 
 const {
