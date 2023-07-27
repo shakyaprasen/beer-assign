@@ -36,6 +36,7 @@ import { MyBeerSchema } from '@/types/beer.interface'
 import { parse, type Output, ValiError } from 'valibot'
 import BeerImg from '@/assets/beer.png'
 
+// @TODO: use a better random id generator
 function generateId() {
   return Math.round(Math.random() * 10000)
 }
